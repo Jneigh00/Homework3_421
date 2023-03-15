@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue@3.2.47/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="materialize.min.css">
+    <link rel = "stylesheet" href="game.css">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="materialize.min.js"></script>
+</head>
+<body>
+<div id="app">
+    <div id = "start">
+        <h1 class = "blue-text center-align" >Welcome to Who Wants to be a Millionaire! </h1>
+        <h6 class = "center-align">Enter your name and click continue</h6>
+        <div class = "gameStartOpt">
+            <input id = "playername" class="nameInput blue" placeholder="Enter Name" style="width: 500px; -webkit-text-fill-color: white;" >
+        </div>
+        <button @click="startGame" class = "startGame btn-block blue">Start Game</button>
+    </div>
+
+    <div class ="center-align" id = "game" style="visibility: hidden;">
+            <h1> Question {{questionNum}}</h1>
+            <h6 style="margin-top: 100px;">{{questions[questionNum - 1].question}}</h6>
+            <button @keydown="checkAnswer('A')" class = "inGameButton btn-block blue">{{questions[questionNum -1].answers[0]}}</button>
+            <br>
+            <br>
+            <br>
+            <button @keydown="checkAnswer('B')" class = "inGameButton btn-block blue">{{questions[questionNum -1].answers[1]}}</button>
+            <br>
+            <br>
+            <br>
+            <button @keydown="checkAnswer('C')" class = "inGameButton btn-block blue">{{questions[questionNum -1].answers[2]}}</button>
+            <br>
+            <br>
+            <br>
+            <button @keydown="checkAnswer('D')" class = "inGameButton btn-block blue">{{questions[questionNum -1].answers[3]}}</button>
+            <h6 style="margin-top: 100px">Your Score is: {{playerScore}}</h6>
+    </div>
+</div>
+<script src = "Game.js"></script>
+</body>
+</html>
